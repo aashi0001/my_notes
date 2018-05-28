@@ -33,9 +33,9 @@ rails s
 
 
 
-* How to run the test suite
+## How to run the test suite
 
-## cd into app and run 
+* cd into app and run 
 ### rspec
 
 ## Improvements in Future:
