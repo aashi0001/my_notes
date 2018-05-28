@@ -15,11 +15,13 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= f.label :etags %>
-    <%= f.text_field :etags %>
-  </div>
+  
+  <% unless user_action.eql?("new") %>
+    <div class="field">
+      <%= f.label :etags %>
+      <%= f.text_field :etags %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :content %>

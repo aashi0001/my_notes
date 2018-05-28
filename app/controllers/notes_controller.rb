@@ -41,8 +41,11 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    params = note_params
+    tags   = note_params.dig("etags")
+    params["etags"] = NotesHelper::Utilities.str_to_ary(tags)
     respond_to do |format|
-      if @note.update(note_params)
+      if @note.update(params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
@@ -72,4 +75,5 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:title, :etags, :content, :status)
     end
+
 end
