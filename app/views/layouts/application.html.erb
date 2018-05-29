@@ -22,11 +22,14 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
   </head>
+    <%= render "shared/navbar" %><br>
   <body>
-  	<div class="container-fluid">
-      <%= render "shared/navbar" %>
+    <div class="container-fluid">
       <p id="notice"><%= notice %></p>
     	<%= yield %>
+      <% if user_signed_in? %>
+      <%= link_to '<i class="fa fa-trash fa-5x"></i> Trash'.html_safe, trash_notes_path, class: "btn btn-outline-danger btn-rounded fixedbutton" %>
+      <% end %>
     </div>
   </body>
 </html>

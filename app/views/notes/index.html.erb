@@ -1,29 +1,35 @@
-<h1>Notes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Etags</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="text-center heading">
+  <span><%= link_to 'New Note', new_note_path, class: 'btn btn-blue-grey' %></span>
+  <span><h1>Your Notes</h1></span>
+</div>
+  <div class="row">
     <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.etags %></td>
-        <td><%= note.content %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Delete', inactive_note_path(note), data: { confirm: 'You can anytime recover notes from trash' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+       
+        <div class="card card-cascade wider col-md-3">
+        <!-- Card content -->
+          <div class="card-body text-center">
 
+            <!-- Title -->
+            <h3 class="card-title"><%= note.title %></h3>
+            <p class="card-text grey-text">
+              <% if note.etags.present? %>
+                <% note.etags.each do|tag| %>
+                  <%= tag+"," %>
+                <% end %>
+              <% end %>
+            </p>
+            <!-- Text -->
+            <p class="card-text"><%= note.content %></p>
+            </div>
+            <!-- Button -->
+              <div class="actions">
+              <%= link_to 'Show', note, class: "btn btn-primary" %>
+              <%= link_to 'Edit', edit_note_path(note) , class: "btn btn-default"%></td>
+              <%= link_to 'Delete', inactive_note_path(note), data: { confirm: 'You can anytime recover notes from trash' }, class: "btn btn-danger" %>
+              </div>
+           
+        </div>
+    <% end %>
+      </div>
 <br>
 
-<%= link_to 'New Note', new_note_path %>

@@ -1,4 +1,6 @@
 <%= form_for(note) do |f| %>
+
+
   <% if note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -11,26 +13,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="md-form">
+    <%= f.label :title %><br><br>
+    <%= f.text_field :title, class: 'form-control' %>
+    
   </div>
   
   <% unless user_action.eql?("new") %>
-    <div class="field">
-      <%= f.label :etags %>
-      <%= f.text_field :etags %>
+    <div class="md-form">
+      <%= f.label "Add Tags" %><br><br>
+      <%= f.text_field :etags, class: 'form-control' %>
     </div>
   <% end %>
   
   <%= f.hidden_field :user_id %>
 
-  <div class="field">
+  <div class="md-form"><br><br>
     <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control md-textarea' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    
+    <%= f.submit 'submit', :class => 'btn btn-cyan' %>
   </div>
 <% end %>

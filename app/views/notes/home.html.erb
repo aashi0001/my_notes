@@ -22,8 +22,15 @@
                         </strong>
                     </p>
 
+                    <% if user_signed_in? %>
+
+                    <%= link_to '<i class="fa fa-eye"></i> See Your Notes!'.html_safe, notes_path, class: 'btn btn-outline-white btn-lg' %>
+                    
+                    <% else %>
+
                     <%= link_to '<i class="fa fa-handshake-o"></i> Lets Take you ahead!'.html_safe, new_user_session_path, class: 'btn btn-outline-white btn-lg' %>
 
+					<% end %>
                 </div>
                 <!-- Content -->
             </section>

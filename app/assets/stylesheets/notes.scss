@@ -1,4 +1,14 @@
 // Template style
+
+body{
+	margin-top: 60px!important;
+	margin-right: 10px!important;
+}
+
+#notice{
+	margin-top: 10px;
+}
+
 #intro {
   background: #3a7bd5;
   /* fallback for old browsers */
@@ -8,7 +18,20 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.card{
+	margin-left: 4%;
+    margin-top: 2%;
+    height: 360px;
+}
 
+.actions{
+	margin-top: 0%;
+}
+.heading{
+	display: inline-block;
+	width: 100%;
+	position: relative;
+}
 a:hover, a:visited, a:link, a:active
 {
     color: none;
@@ -20,6 +43,12 @@ a:hover, a:visited, a:link, a:active
 	padding-top: 1.5rem!important;
 }
 
+.item1{
+	margin-left:10px!important;
+}
+.holder{
+	height: 800px;
+}
 form {
     display: block;
     margin-top: 5em;
@@ -32,4 +61,9 @@ form {
 
 .sign_up_text{
 	margin-left: 35%;
+}
+.fixedbutton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px; 
 }
