@@ -1,4 +1,4 @@
-<nav class="navbar">
+<!-- <nav class="navbar">
   <div class="container-fluid">
     <div class="navbar-header">
       <span class="navbar-brand" href="#">WebSiteName</span>
@@ -13,3 +13,38 @@
     </ul>
   </div>
 </nav>
+
+
+ -->
+
+
+<header>
+
+        <!-- Navbar -->
+         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container-fluid">
+
+                <!-- Brand -->
+                  <%= link_to root_path do %>
+                   <%= image_tag "logo.png", style: 'height:60px;width:60px;' %>
+                  <% end %>
+                    <!-- Right -->
+                    <ul class="navbar-nav nav-flex-icons">
+                        
+                        <% if !user_signed_in? %>
+                         <%= link_to '<i class="fa fa-sign-in"></i> Login'.html_safe, new_user_session_path, class: 'btn btn-primary' %>
+                       <% else %>
+                       
+                         <li><span class="navbar-text user-text"><%= current_user.email %></span></li>
+                         <%= link_to '<i class="fa fa-sign-out"></i> Logout'.html_safe, destroy_user_session_path, :method => :delete, class: 'btn btn-indigo' %>
+                         
+                       <% end %>
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav> 
+        <!-- Navbar -->
+
+    </header>

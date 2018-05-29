@@ -1,4 +1,35 @@
-.navbar{
-	 
-	 margin-top: 10px!important;
+// Template style
+#intro {
+  background: #3a7bd5;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3a6073, #3a7bd5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+a:hover, a:visited, a:link, a:active
+{
+    color: none;
+    text-decoration: none;
+}
+
+.user-text{
+	margin-right: 10px;
+	padding-top: 1.5rem!important;
+}
+
+form {
+    display: block;
+    margin-top: 5em;
+    margin-left: 35%;
+}
+
+.forgot_password{
+	margin-left: 35%;
+}
+
+.sign_up_text{
+	margin-left: 35%;
 }
