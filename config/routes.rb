@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  root 'notes#home'
   devise_for :users
   resources :notes do
     get :inactive, on: :member
