@@ -47,7 +47,7 @@ a:hover, a:visited, a:link, a:active
 	margin-left:10px!important;
 }
 .holder{
-	height: 800px;
+	height: 1024px;
 }
 form {
     display: block;
@@ -66,4 +66,23 @@ form {
     position: fixed;
     bottom: 0px;
     right: 0px; 
+}
+ #msg {
+  position:absolute;
+  padding-top: 30px;
+  padding-left: 20px;
+  height: 100px;
+  width: 400px;
+  z-index:1000;
+  color:green;
+  margin-top: 20%;
+  margin-left: 40%;
+  background: #FAFAFA;
+  border-radius: 20px;
+  box-shadow: 10px 10px #A4A4A4;
+  display: none;
+}
+.butn{
+  width: 300px!important;
+  margin-left: 40%!important;
 }

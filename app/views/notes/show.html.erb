@@ -1,3 +1,7 @@
+<div id="msg">
+    <h4>Your file will be downloaded soon</h4>
+</div>
+
 <!--Panel-->
 <div class="card text-center holder">
     <div class="card-header">
@@ -27,4 +31,15 @@
         <p class="card-text"><%= @note.content %></p>
         
     </div>
+    <%= link_to 'Download', download_note_path(@note), class: 'btn btn-primary butn' %>
 </div>
+
+
+<script>
+  $(document).ready(function(){
+  setTimeout(function(){ $('#msg').fadeOut() }, 5000);
+  $(".btn").click(function(){
+    $("#msg").fadeIn(1000);
+  });
+ });
+</script>

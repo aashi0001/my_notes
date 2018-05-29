@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy, :inactive, :restore]
+  before_action :set_note, only: [:show, :edit, :update, :destroy, :inactive, :restore, :download]
   before_action :authenticate_user!, except: [:home]
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
@@ -80,6 +80,11 @@ class NotesController < ApplicationController
       format.html { redirect_to notes_url, notice: 'Note was successfully Restored.' }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    result = UseCase::V1::DownloadFile.new(note: @note).call
+    send_file result, :disposition => 'attachment'
   end
 
   private

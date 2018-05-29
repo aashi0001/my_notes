@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :notes do
     get :inactive, on: :member
+    get :download, on: :member
     get :restore, on: :member
     get :trash, on: :collection
   end
