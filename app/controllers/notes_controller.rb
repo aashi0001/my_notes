@@ -1,32 +1,32 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy, :inactive]
+  before_action :authenticate_user!, except: [:home]
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  
 
-  # GET /notes
-  # GET /notes.json
-  def index
-    @notes = Note.all
+  def home
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
+  def index
+    @notes = Note.user_notes(current_user).active
+  end
+
+  
   def show
   end
 
-  # GET /notes/new
   def new
     @note = Note.new
   end
 
-  # GET /notes/1/edit
   def edit
   end
 
-  # POST /notes
-  # POST /notes.json
+  
   def create
     @note = Note.new(note_params)
     @note.get_tags
-
+    @note.user_id = current_user.id 
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
@@ -38,8 +38,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
   def update
     params = note_params
     tags   = note_params.dig("etags")
@@ -55,8 +53,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
     @note.destroy
     respond_to do |format|
@@ -75,14 +71,17 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_note
       @note = Note.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def record_not_found
+      redirect_to root_path, notice: "Inaccesible Entity"
+    end
+
     def note_params
-      params.require(:note).permit(:title, :etags, :content, :status)
+      params.require(:note).permit(:title, :etags, :content, :status, :user_id)
     end
 
 end
