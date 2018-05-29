@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy, :inactive]
+  before_action :set_note, only: [:show, :edit, :update, :destroy, :inactive, :restore]
   before_action :authenticate_user!, except: [:home]
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
@@ -70,8 +70,20 @@ class NotesController < ApplicationController
     end
   end
 
+  def trash
+    @notes = Note.user_notes(current_user).inactive
+  end
+
+  def restore
+    @note.active!
+    respond_to do |format|
+      format.html { redirect_to notes_url, notice: 'Note was successfully Restored.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
-  
+
     def set_note
       @note = Note.find(params[:id])
     end
