@@ -11,16 +11,11 @@
 
 ## cd into the project 
 
-### Migrate Databse 
-
-
-
+### Databse Setup 
 
 ```
-Rake db:create db:migrate
+Rake db:create db:migrate db:seed
 ```
-
-
 
 
 ### Install & Run
@@ -36,9 +31,34 @@ rails s
 ## How to run the test suite
 
 * cd into app and run 
-### rspec
+* run rspec
+* view test coverage report in coverage -> index.html
+
+## Preloaded Data to test
+
+### Login with following credentials: 
+
+* email: test_user@example.com, password: "12345678"
+* email: test_user_two@example.com password: "87654321"
+
+
 
 ## Improvements in Future:
+
+* Integrate CKEditor to content body
+
+* Integrate feature to attach media  files to notes ( pdf, photos, videos, embedded videos.)
+
+* Add more user related information.
+
+* Verify user via email confirmation.
+
+* Integrate emails and sms alert.
+
+* Write specs for user behaviour ( UI )
+
+* User Role Based Permission access
+
 
 
 
