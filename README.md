@@ -45,7 +45,7 @@ rails s
 
 ## Improvements in Future:
 
-* Integrate CKEditor to content body
+* Integrate WYSIWYG text editor to content body
 
 * Integrate feature to attach media  files to notes ( pdf, photos, videos, embedded videos.)
 
