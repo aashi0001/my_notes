@@ -15,11 +15,11 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
- 
-  SimpleCov.start 'rails'
+  config.include Devise::Test::ControllerHelpers, type: :controller   
  
   config.use_transactional_fixtures = true
   config.include FactoryGirl::Syntax::Methods
+  SimpleCov.start
 
   Shoulda::Matchers.configure do |config|
   config.integrate do |with|
