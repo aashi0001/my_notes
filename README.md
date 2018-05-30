@@ -59,8 +59,10 @@ rails s
 
 * User Role Based Permission access
 
+* Add pagination.
 
 
+### currently deployed at : https://mi-notes.herokuapp.com/
 
 ## Want to Contribute?
 
