@@ -29,6 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'auto_tagging'
 gem 'devise'
+gem "faker", require: false
 #gem 'bootstrap-sass'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -41,7 +42,6 @@ gem 'devise'
 group :development, :test do
   gem "database_cleaner", require: false
   gem "factory_girl_rails"
-  gem "faker", require: false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'pry', require: "pry"
   gem "rspec-rails", "~> 3.5.2"
