@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe NotesController, type: :controller do
   let(:user){FactoryGirl.create(:user)}
-  let!(:note) { FactoryGirl.create(:note, user_id: user.id) }
-  let!(:note2) { FactoryGirl.create(:note, id: 2, status: "inactive", user_id: user.id) }
+  let!(:note) { FactoryGirl.create(:note, id: 2, user_id: user.id) }
+  let!(:note2) { FactoryGirl.create(:note, id: 3, status: "inactive", user_id: user.id) }
   before (:each) do
   sign_in user
   end
