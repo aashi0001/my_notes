@@ -22,7 +22,7 @@
             <div class="card-text content-body1"><%= note.content %></div>
             </div>
             <!-- Button -->
-              <div class="actions">
+              <div class="bottom-actions">
               <%= link_to 'Show', note, class: "btn btn-primary" %>
               <%= link_to 'Edit', edit_note_path(note) , class: "btn btn-default"%></td>
               <%= link_to 'Delete', inactive_note_path(note), data: { confirm: 'You can anytime recover notes from trash' }, class: "btn btn-danger" %>
